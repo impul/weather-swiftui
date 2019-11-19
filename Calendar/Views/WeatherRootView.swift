@@ -9,13 +9,13 @@
 import SwiftUI
 
 struct WeatherRootView: View {
-    var weathers = [DayWeather(text: "Day 1"), DayWeather(text: "Day 2"), DayWeather(text: "Day 3"), DayWeather(text: "Day 4")]
+    let dayWeather: [DaylyWeather] = []
     
     var body: some View {
         List {
             ScrollView(.horizontal, content: {
                 HStack(spacing: 10) {
-                    ForEach(weathers) { weather in
+                    ForEach(dayWeather) { weather in
                         DayWeatherView(weather: weather)
                     }
                 }

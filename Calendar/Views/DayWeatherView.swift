@@ -9,10 +9,10 @@
 import SwiftUI
 
 struct DayWeatherView: View {
-    var weather: DayWeather
+    var weather: DaylyWeather
     
     var body: some View {
-        Text(weather.text)
+        Text(weather.id)
     }
 }
 
