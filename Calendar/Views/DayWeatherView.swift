@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  DayWeather.swift
 //  Calendar
 //
 //  Created by Pavlo Boiko on 11/19/19.
@@ -8,14 +8,16 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct DayWeatherView: View {
+    var weather: DayWeather
+    
     var body: some View {
-        Text("Hello World")
+        Text(weather.text)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct DayWeatherView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        WeatherRootView()
     }
 }

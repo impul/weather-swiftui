@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		349098EC2383F29900DCF155 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349098EB2383F29900DCF155 /* AppDelegate.swift */; };
 		349098EE2383F29900DCF155 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349098ED2383F29900DCF155 /* SceneDelegate.swift */; };
-		349098F02383F29900DCF155 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349098EF2383F29900DCF155 /* ContentView.swift */; };
 		349098F22383F29900DCF155 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 349098F12383F29900DCF155 /* Assets.xcassets */; };
 		349098F52383F29900DCF155 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 349098F42383F29900DCF155 /* Preview Assets.xcassets */; };
 		349098F82383F29900DCF155 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349098F62383F29900DCF155 /* LaunchScreen.storyboard */; };
+		349099032383F44B00DCF155 /* WeatherRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349099022383F44B00DCF155 /* WeatherRootView.swift */; };
+		349099052383F6C900DCF155 /* DayWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349099042383F6C900DCF155 /* DayWeatherView.swift */; };
+		349099082383F9C400DCF155 /* DayWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349099072383F9C400DCF155 /* DayWeather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		349098E82383F29900DCF155 /* Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		349098EB2383F29900DCF155 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		349098ED2383F29900DCF155 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		349098EF2383F29900DCF155 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		349098F12383F29900DCF155 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		349098F42383F29900DCF155 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		349098F72383F29900DCF155 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		349098F92383F29900DCF155 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		349099022383F44B00DCF155 /* WeatherRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRootView.swift; sourceTree = "<group>"; };
+		349099042383F6C900DCF155 /* DayWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayWeatherView.swift; sourceTree = "<group>"; };
+		349099072383F9C400DCF155 /* DayWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayWeather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +60,10 @@
 		349098EA2383F29900DCF155 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				349099062383F6FE00DCF155 /* Models */,
+				349099012383F3DE00DCF155 /* Views */,
 				349099002383F2E100DCF155 /* Application */,
 				349098FF2383F2C500DCF155 /* Resources */,
-				349098EF2383F29900DCF155 /* ContentView.swift */,
 				349098F32383F29900DCF155 /* Preview Content */,
 			);
 			path = Calendar;
@@ -89,6 +94,23 @@
 				349098EB2383F29900DCF155 /* AppDelegate.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		349099012383F3DE00DCF155 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				349099022383F44B00DCF155 /* WeatherRootView.swift */,
+				349099042383F6C900DCF155 /* DayWeatherView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		349099062383F6FE00DCF155 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				349099072383F9C400DCF155 /* DayWeather.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,8 +185,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				349098EC2383F29900DCF155 /* AppDelegate.swift in Sources */,
+				349099052383F6C900DCF155 /* DayWeatherView.swift in Sources */,
+				349099082383F9C400DCF155 /* DayWeather.swift in Sources */,
 				349098EE2383F29900DCF155 /* SceneDelegate.swift in Sources */,
-				349098F02383F29900DCF155 /* ContentView.swift in Sources */,
+				349099032383F44B00DCF155 /* WeatherRootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
