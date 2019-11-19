@@ -56,12 +56,9 @@
 		349098EA2383F29900DCF155 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				349098EB2383F29900DCF155 /* AppDelegate.swift */,
-				349098ED2383F29900DCF155 /* SceneDelegate.swift */,
+				349099002383F2E100DCF155 /* Application */,
+				349098FF2383F2C500DCF155 /* Resources */,
 				349098EF2383F29900DCF155 /* ContentView.swift */,
-				349098F12383F29900DCF155 /* Assets.xcassets */,
-				349098F62383F29900DCF155 /* LaunchScreen.storyboard */,
-				349098F92383F29900DCF155 /* Info.plist */,
 				349098F32383F29900DCF155 /* Preview Content */,
 			);
 			path = Calendar;
@@ -73,6 +70,25 @@
 				349098F42383F29900DCF155 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		349098FF2383F2C500DCF155 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				349098F92383F29900DCF155 /* Info.plist */,
+				349098F12383F29900DCF155 /* Assets.xcassets */,
+				349098F62383F29900DCF155 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		349099002383F2E100DCF155 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				349098ED2383F29900DCF155 /* SceneDelegate.swift */,
+				349098EB2383F29900DCF155 /* AppDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,7 +304,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Calendar/Preview Content\"";
 				DEVELOPMENT_TEAM = X24R65DM8E;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Calendar/Info.plist;
+				INFOPLIST_FILE = Calendar/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,7 +324,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Calendar/Preview Content\"";
 				DEVELOPMENT_TEAM = X24R65DM8E;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Calendar/Info.plist;
+				INFOPLIST_FILE = Calendar/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
