@@ -13,7 +13,7 @@ public class OpenWeatherMapSource: WeatherSourceProtocol {
         
     }
     
-    func getWeatherPerDayInCity(_ city: String, response: (Result<[DaylyWeather], WeatherSourceError>) -> Void) {
+    func getWeatherPerDayInCity(_ city: String, response: (Result<[DaylyWeather], WeatherError>) -> Void) {
         
     }
 }
