@@ -12,7 +12,11 @@ struct WeatherRootView: View {
     let dayWeather: [DaylyWeather] = []
     
     var body: some View {
-        List {
+        Current.weather.getWeatherPerDayInCity("Uzhhorod") { (weather) in
+            print(weather)
+        }
+        
+        return List {
             ScrollView(.horizontal, content: {
                 HStack(spacing: 10) {
                     ForEach(dayWeather) { weather in
