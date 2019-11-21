@@ -19,12 +19,12 @@ struct OpenWeatherResponce: Codable {
         let dt_txt: String
         let dt: UInt64
         let main: General
-        let water: Water
+        let weather: [Weather]
         let clouds: Clouds
         let wind: Wind
-        let rain: Rain
+        let rain: Rain?
         
-        struct Water: Codable {
+        struct Weather: Codable {
             let id: Int
             let main: String
             let description: String
@@ -52,7 +52,7 @@ struct OpenWeatherResponce: Codable {
         }
         
         struct Rain: Codable {
-            let possibility: Double
+            let possibility: Double?
             
             enum CodingKeys: String, CodingKey {
                 case possibility = "3h"

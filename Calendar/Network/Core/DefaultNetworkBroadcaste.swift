@@ -51,7 +51,7 @@ public class DefaultNetworkBroadcaster: NetworkBroadcastingInterface {
             let object = try JSONDecoder().decode(SuccImpModel.self, from: data)
             result(.success(object))
         } catch {
-            result(.failure(.decoding))
+            result(.failure(.decoding(error)))
         }
     }
 }

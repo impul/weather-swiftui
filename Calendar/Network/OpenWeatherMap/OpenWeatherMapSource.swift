@@ -29,8 +29,8 @@ public class OpenWeatherMapSource: WeatherSourceProtocol {
                     return DaylyWeather(date: Date(timeIntervalSince1970: TimeInterval(weather.dt)),
                                         minTemperature: weather.main.temp_min,
                                         maxTemperature: weather.main.temp_max,
-                                        rainsProcents: weather.rain.possibility,
-                                        iconUrl: URL(string: weatherIconsUrl + weather.water.icon + "@2x.png"))
+                                        rainsProcents: weather.rain?.possibility ?? 0,
+                                        iconUrl: URL(string: weatherIconsUrl + (weather.weather.first?.icon ?? "01d") + "@2x.png"))
                 }))
             }
         }

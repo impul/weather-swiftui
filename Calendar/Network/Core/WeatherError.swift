@@ -12,6 +12,6 @@ public enum WeatherError: Error {
     case http(Error)
     case incorrectUrl
     case unknown
-    case decoding
+    case decoding(Error)
     case request(Error)
 }
