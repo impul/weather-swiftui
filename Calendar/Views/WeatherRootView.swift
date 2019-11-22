@@ -9,24 +9,25 @@
 import SwiftUI
 
 struct WeatherRootView: View {
-    let dayWeather: [DaylyWeather] = []
+    @ObservedObject var viewModel = WeatherViewModel()
     
     var body: some View {
-        Current.weather.getWeatherPerDayInCity("Uzhhorod") { (weather) in
-            print(weather)
-        }
-        
-        return List {
-            ScrollView(.horizontal, content: {
-                HStack(spacing: 10) {
-                    ForEach(dayWeather) { weather in
-                        DayWeatherView(weather: weather)
+        NavigationView {
+            List {
+                TextField("City name", text: $viewModel.searchCity)
+                    .padding(.all)
+                    .background(Color(.secondarySystemBackground))
+                    .cornerRadius(5)
+                ScrollView(.horizontal, content: {
+                    HStack(spacing: 10) {
+                        ForEach(viewModel.daylyWeather) { weather in
+                            DayWeatherView(weather: weather)
+                        }
                     }
-                }
-                .padding(.leading, 10)
-            })
-            .frame(height: 190)
-            
+                    .padding(.leading, 10.0)
+                })
+                .frame(height: 190)
+            }.navigationBarTitle("Weather")
         }
     }
 }

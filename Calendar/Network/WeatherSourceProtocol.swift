@@ -7,7 +7,8 @@
 //
 
 import Foundation
+import Combine
 
 protocol WeatherSourceProtocol {
-    func getWeatherPerDayInCity(_ city: String, response: @escaping (Result<[DaylyWeather], WeatherError>) -> Void)
+    func getWeatherPerDayInCity(_ city: String) -> AnyPublisher<[DaylyWeather], Error>?
 }

@@ -12,7 +12,7 @@ struct DayWeatherView: View {
     var weather: DaylyWeather
     
     var body: some View {
-        Text(weather.id)
+        Text(weather.date.description)
     }
 }
 
