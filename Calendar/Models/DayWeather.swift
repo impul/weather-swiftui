@@ -6,14 +6,31 @@
 //  Copyright © 2019 Pavlo Boiko. All rights reserved.
 //
 
-import Foundation
+import UIKit.UIImage
+
+enum WeatherIcon: String {
+    case clearSky
+    case snow
+    case mist
+    case rain
+    case brokenClouds
+    case fewClouds
+    case scatteredClouds
+    case showerRain
+    case thunderstorm
+    
+    var image: UIImage {
+        return UIImage(named: self.rawValue) ?? UIImage()
+    }
+}
 
 struct DaylyWeather: Identifiable {
     var id: String { String(date.timeIntervalSince1970) }
     
     var date: Date
     var minTemperature: Double
+    var current: Double
     var maxTemperature: Double
     var rainsProcents: Double
-    var iconUrl: URL?
+    var icon: WeatherIcon
 }

@@ -10,5 +10,5 @@ import Foundation
 import Combine
 
 protocol WeatherSourceProtocol {
-    func getWeatherPerDayInCity(_ city: String) -> AnyPublisher<[DaylyWeather], Error>?
+    func getWeatherPerDayInCity(_ city: String) -> AnyPublisher<CityModel, Error>?
 }

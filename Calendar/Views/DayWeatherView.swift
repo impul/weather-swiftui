@@ -12,7 +12,14 @@ struct DayWeatherView: View {
     var weather: DaylyWeather
     
     var body: some View {
-        Text(weather.date.description)
+        VStack {
+            Text(weather.date.formatted(format: .hour))
+            Image(uiImage: weather.icon.image)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 40, alignment: .center)
+            Text(String(weather.current.rounded()))
+        }
     }
 }
 

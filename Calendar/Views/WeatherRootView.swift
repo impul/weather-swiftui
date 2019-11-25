@@ -12,22 +12,25 @@ struct WeatherRootView: View {
     @ObservedObject var viewModel = WeatherViewModel()
     
     var body: some View {
-        NavigationView {
+        VStack {
+            TextField("City name", text: $viewModel.searchCity)
+                .padding(.all)
+                .background(Color(.secondarySystemBackground))
+                .cornerRadius(5)
             List {
-                TextField("City name", text: $viewModel.searchCity)
-                    .padding(.all)
-                    .background(Color(.secondarySystemBackground))
-                    .cornerRadius(5)
-                ScrollView(.horizontal, content: {
-                    HStack(spacing: 10) {
-                        ForEach(viewModel.daylyWeather) { weather in
-                            DayWeatherView(weather: weather)
+                ForEach(viewModel.daylyWeather.map { $0.0 }) { dayWeathers in
+                    ScrollView(.horizontal, content: {
+                        HStack(spacing: 10) {
+                            ForEach(self.viewModel.daylyWeather[dayWeathers]!) { weather in
+                                DayWeatherView(weather: weather)
+                                    .background(Color(.secondarySystemBackground))
+                                    .cornerRadius(5)
+                            }
                         }
-                    }
-                    .padding(.leading, 10.0)
-                })
-                .frame(height: 190)
-            }.navigationBarTitle("Weather")
+                    })
+                }
+                .frame(height: 120)
+            }
         }
     }
 }

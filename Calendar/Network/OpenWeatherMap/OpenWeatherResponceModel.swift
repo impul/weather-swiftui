@@ -29,6 +29,21 @@ struct OpenWeatherResponce: Codable {
             let main: String
             let description: String
             let icon: String
+            
+            var dayIcon: WeatherIcon {
+                switch icon.prefix(2) {
+                case "01": return .clearSky
+                case "02": return .fewClouds
+                case "03": return .scatteredClouds
+                case "04": return .brokenClouds
+                case "09": return .showerRain
+                case "10": return .rain
+                case "11": return .thunderstorm
+                case "13": return .snow
+                case "50": return .mist
+                default: return .clearSky
+                }
+            }
         }
         
         struct General: Codable {

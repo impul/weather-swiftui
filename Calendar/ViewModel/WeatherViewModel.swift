@@ -16,16 +16,26 @@ final class WeatherViewModel: ObservableObject {
     
     @Published var searchCity: String = "" {
         didSet {
-           searchCancellable = Current
+            guard !searchCity.isEmpty else {
+                return daylyWeather = [:]
+            }
+            
+            searchCancellable = Current
                 .weather
                 .getWeatherPerDayInCity(searchCity)?
-                .compactMap { $0 }
-                .replaceError(with: [])
-                .assign(to: \.daylyWeather, on: self)
-            
+                .map { $0 }
+                .sink(receiveCompletion: { (error) in
+                    print(error)
+                }, receiveValue: { (city) in
+                    self.city = city.name
+                    self.daylyWeather = Dictionary(grouping: city.weather) {
+                        return $0.date.formatted(format: .dayMonth)
+                    }
+                })
         }
     }
-    @Published private(set) var daylyWeather: [DaylyWeather] = []
+    @Published private(set) var city: String = ""
+    @Published private(set) var daylyWeather: [String:[DaylyWeather]] = [:]
     
     deinit {
         searchCancellable?.cancel()

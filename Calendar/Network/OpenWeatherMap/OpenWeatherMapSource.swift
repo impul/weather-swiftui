@@ -18,20 +18,22 @@ fileprivate enum Enpoints {
 }
 
 public class OpenWeatherMapSource: WeatherSourceProtocol {
- 
-    func getWeatherPerDayInCity(_ city: String) -> AnyPublisher<[DaylyWeather], Error>?  {
-        guard let url = URL(string: url + NSString(format: Enpoints.weather5per3, city, apiKey ).description) else { return nil }
+    
+    func getWeatherPerDayInCity(_ city: String) -> AnyPublisher<CityModel, Error>?  {
+        guard let url = URL(string: url + NSString(format: Enpoints.weather5per3, city, apiKey).description) else { return nil }
         return URLSession.shared
             .dataTaskPublisher(for: url)
-                .map { $0.data }
-                .decode(type: OpenWeatherResponce.self, decoder: JSONDecoder())
-                .receive(on: RunLoop.main)
-                .map { $0.list.map {
-                        DaylyWeather(date: Date(timeIntervalSince1970: TimeInterval($0.dt)),
-                                     minTemperature: $0.main.temp_min,
-                                     maxTemperature: $0.main.temp_max,
-                                     rainsProcents: $0.rain?.possibility ?? 0,
-                                     iconUrl: URL(string: weatherIconsUrl + ($0.weather.first?.icon ?? "01d") + "@2x.png"))
-            }}.eraseToAnyPublisher()
+            .map { $0.data }
+            .decode(type: OpenWeatherResponce.self, decoder: JSONDecoder())
+            .receive(on: RunLoop.main)
+            .map { CityModel(name: $0.city.name, weather: $0.list.map {
+                DaylyWeather(date: Date(timeIntervalSince1970: TimeInterval($0.dt)),
+                             minTemperature: $0.main.temp_min,
+                             current: $0.main.temp,
+                             maxTemperature: $0.main.temp_max,
+                             rainsProcents: $0.rain?.possibility ?? 0,
+                             icon: $0.weather.first?.dayIcon ?? .clearSky)}
+                )}
+            .eraseToAnyPublisher()
     }
 }
