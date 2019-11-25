@@ -8,9 +8,13 @@
 
 import Foundation
 
-struct OpenWeatherError: Codable {
+struct OpenWeatherError: Codable, Error {
     let cod: String
     let message: String
+    
+    var localizedDescription: String {
+        return message
+    }
 }
 
 struct OpenWeatherResponce: Codable {
