@@ -18,19 +18,21 @@ struct WeatherRootView: View {
                 .background(Color(.secondarySystemBackground))
                 .cornerRadius(5)
             List {
-                ForEach(viewModel.daylyWeather.map { $0.0 }) { dayWeathers in
-                    ScrollView(.horizontal, content: {
-                        HStack(spacing: 10) {
-                            ForEach(self.viewModel.daylyWeather[dayWeathers]!) { weather in
-                                DayWeatherView(weather: weather)
-                                    .background(Color(.secondarySystemBackground))
-                                    .cornerRadius(5)
+                ForEach(viewModel.daylyWeather.map { $0.0 }.sorted()) { dayWeathers in
+                    VStack {
+                        HStack { Text(dayWeathers).bold();Spacer()}
+                        ScrollView(.horizontal, content: {
+                            HStack(spacing: 5) {
+                                ForEach(self.viewModel.daylyWeather[dayWeathers]!) { weather in
+                                    DayWeatherView(weather: weather)
+                                        .background(Color.blue.opacity(55))
+                                        .cornerRadius(5)
+                                }
                             }
-                        }
-                    })
-                }
-                .frame(height: 120)
-            }
+                        })
+                    }
+                }.frame(height: 130)
+            }.onAppear { UITableView.appearance().separatorStyle = .none }
         }
     }
 }

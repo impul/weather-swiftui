@@ -8,19 +8,20 @@
 
 import Foundation
 import Combine
-
-private let url = "https://samples.openweathermap.org"
+//http://api.openweathermap.org/data/2.5/forecast?q=Uzhhorod&APPID=a9f64ccd2f781cff0d2c0b009bdab6f7
+private let url = "http://api.openweathermap.org"
 private let weatherIconsUrl = "http://openweathermap.org/img/wn/"
 private let apiKey = "a9f64ccd2f781cff0d2c0b009bdab6f7"
 
 fileprivate enum Enpoints {
-    static var weather5per3: NSString = "/data/2.5/forecast?q=%@&appid=%@"
+    static var weather5per3: NSString = "/data/2.5/forecast?q=%@&APPID=%@&units=metric"
 }
 
 public class OpenWeatherMapSource: WeatherSourceProtocol {
     
     func getWeatherPerDayInCity(_ city: String) -> AnyPublisher<CityModel, Error>?  {
         guard let url = URL(string: url + NSString(format: Enpoints.weather5per3, city, apiKey).description) else { return nil }
+        print(url)
         return URLSession.shared
             .dataTaskPublisher(for: url)
             .map { $0.data }
@@ -28,9 +29,9 @@ public class OpenWeatherMapSource: WeatherSourceProtocol {
             .receive(on: RunLoop.main)
             .map { CityModel(name: $0.city.name, weather: $0.list.map {
                 DaylyWeather(date: Date(timeIntervalSince1970: TimeInterval($0.dt)),
-                             minTemperature: $0.main.temp_min,
-                             current: $0.main.temp,
-                             maxTemperature: $0.main.temp_max,
+                             minTemperature: Int($0.main.temp_min),
+                             current: Int($0.main.temp) ,
+                             maxTemperature: Int($0.main.temp_max),
                              rainsProcents: $0.rain?.possibility ?? 0,
                              icon: $0.weather.first?.dayIcon ?? .clearSky)}
                 )}

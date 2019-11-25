@@ -16,9 +16,9 @@ struct DayWeatherView: View {
             Text(weather.date.formatted(format: .hour))
             Image(uiImage: weather.icon.image)
                 .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 40, alignment: .center)
-            Text(String(weather.current.rounded()))
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 45, alignment: .center)
+            Text(String(weather.current) + "°")
         }
     }
 }

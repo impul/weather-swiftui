@@ -28,9 +28,9 @@ struct DaylyWeather: Identifiable {
     var id: String { String(date.timeIntervalSince1970) }
     
     var date: Date
-    var minTemperature: Double
-    var current: Double
-    var maxTemperature: Double
+    var minTemperature: Int
+    var current: Int
+    var maxTemperature: Int
     var rainsProcents: Double
     var icon: WeatherIcon
 }

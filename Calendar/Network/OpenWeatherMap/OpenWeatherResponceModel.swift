@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct OpenWeatherError: Codable {
+    let cod: String
+    let message: String
+}
+
 struct OpenWeatherResponce: Codable {
     let cod: String
     let message: Double
