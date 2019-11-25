@@ -24,8 +24,8 @@ final class WeatherViewModel: ObservableObject {
                 .weather
                 .getWeatherPerDayInCity(searchCity)?
                 .map { $0 }
-                .sink(receiveCompletion: { (error) in
-                    print(error)
+                .sink(receiveCompletion: { (completion) in
+                    print(completion)
                 }, receiveValue: { (city) in
                     self.city = city.name
                     self.daylyWeather = Dictionary(grouping: city.weather) {
