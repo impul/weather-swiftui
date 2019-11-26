@@ -29,13 +29,23 @@ final class WeatherViewModel: ObservableObject {
                 }, receiveValue: { (city) in
                     self.city = city.name
                     self.daylyWeather = Dictionary(grouping: city.weather) {
-                        return $0.date.formatted(format: .dayMonth)
+                        return $0.date.roundToDay()
                     }
                 })
         }
     }
     @Published private(set) var city: String = ""
-    @Published private(set) var daylyWeather: [String:[DaylyWeather]] = [:]
+    @Published private(set) var daylyWeather: [Date:[DaylyWeather]] = [:]
+    
+    var days: [Date] {
+        daylyWeather
+            .map { $0.key }
+            .sorted()
+    }
+    
+    func weatherByDay(day: Date) -> [DaylyWeather] {
+        return daylyWeather[day] ?? []
+    }
     
     deinit {
         searchCancellable?.cancel()

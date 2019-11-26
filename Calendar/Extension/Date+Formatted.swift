@@ -9,15 +9,33 @@
 import Foundation
 
 public enum DateFormat: String {
-    case dayMonth = "dd MM"
+    case dayWeek = "dd EEEE"
     case hour = "hh"
-    case dayMonthYear = "d MMMM YYYY"
+    case dayMonthYear = "dd-MM-YYYY-Z"
+    
+    var formatter: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = .current
+        dateFormatter.dateFormat = rawValue
+        return dateFormatter
+    }
 }
 
 extension Date {
     func formatted(format: DateFormat) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format.rawValue
-        return dateFormatter.string(from: self)
+        return format.formatter.string(from: self)
+    }
+    
+    func roundToDay() -> Date {
+        var calendar =  Calendar.current
+        calendar.timeZone = .current
+        let components = calendar.dateComponents([.year, .month, .day, .timeZone], from: self)
+        return calendar.date(from: components) ?? Date()
+    }
+}
+
+extension Date: Identifiable {
+    public var id: Date {
+        self
     }
 }

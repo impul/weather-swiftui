@@ -18,12 +18,15 @@ struct WeatherRootView: View {
                 .background(Color(.secondarySystemBackground))
                 .cornerRadius(5)
             List {
-                ForEach(viewModel.daylyWeather.map { $0.0 }.sorted()) { dayWeathers in
+                ForEach(viewModel.days) { dayDate in
                     VStack {
-                        HStack { Text(dayWeathers).bold();Spacer()}
+                        HStack {
+                            Text(dayDate.formatted(format: .dayWeek)).bold()
+                            Spacer()
+                        }
                         ScrollView(.horizontal, content: {
                             HStack(spacing: 5) {
-                                ForEach(self.viewModel.daylyWeather[dayWeathers]!) { weather in
+                                ForEach(self.viewModel.weatherByDay(day: dayDate)) { weather in
                                     DayWeatherView(weather: weather)
                                         .background(Color.blue.opacity(55))
                                         .cornerRadius(5)
