@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-private let url = "http://api.openweathermap.org"
+private let baseUrl = "http://api.openweathermap.org"
 private let weatherIconsUrl = "http://openweathermap.org/img/wn/"
 private let apiKey = "a9f64ccd2f781cff0d2c0b009bdab6f7"
 
@@ -18,6 +18,11 @@ fileprivate enum Enpoints {
 }
 
 public class OpenWeatherMapSource: WeatherSourceProtocol {
+    let url: String
+    
+    init(url: String = baseUrl) {
+        self.url = url
+    }
     
     func getWeatherPerDayInCity(_ city: String) -> AnyPublisher<CityModel, Error>?  {
         guard let url = URL(string: url + NSString(format: Enpoints.weather5per3, city, apiKey).description) else { return nil }

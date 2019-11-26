@@ -13,6 +13,7 @@
 		341B5E0C238DAAE40036CCF5 /* CitiesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B5E0B238DAAE40036CCF5 /* CitiesList.swift */; };
 		341B5E0E238DAB4C0036CCF5 /* CitiesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B5E0D238DAB4C0036CCF5 /* CitiesListViewModel.swift */; };
 		341B5E20238DC3B70036CCF5 /* StorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B5E1F238DC3B70036CCF5 /* StorageTests.swift */; };
+		341B5E22238DC64D0036CCF5 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B5E21238DC64D0036CCF5 /* NetworkTests.swift */; };
 		349098EC2383F29900DCF155 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349098EB2383F29900DCF155 /* AppDelegate.swift */; };
 		349098EE2383F29900DCF155 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349098ED2383F29900DCF155 /* SceneDelegate.swift */; };
 		349098F22383F29900DCF155 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 349098F12383F29900DCF155 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		341B5E15238DC2A70036CCF5 /* WeatherTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		341B5E19238DC2A70036CCF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		341B5E1F238DC3B70036CCF5 /* StorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTests.swift; sourceTree = "<group>"; };
+		341B5E21238DC64D0036CCF5 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
 		349098E82383F29900DCF155 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		349098EB2383F29900DCF155 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		349098ED2383F29900DCF155 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			children = (
 				341B5E19238DC2A70036CCF5 /* Info.plist */,
 				341B5E1F238DC3B70036CCF5 /* StorageTests.swift */,
+				341B5E21238DC64D0036CCF5 /* NetworkTests.swift */,
 			);
 			path = WeatherTest;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				341B5E22238DC64D0036CCF5 /* NetworkTests.swift in Sources */,
 				341B5E20238DC3B70036CCF5 /* StorageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
