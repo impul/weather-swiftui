@@ -12,7 +12,7 @@
 		341B5E0A238DA92E0036CCF5 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B5E09238DA92E0036CCF5 /* UserDefaultsStorage.swift */; };
 		341B5E0C238DAAE40036CCF5 /* CitiesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B5E0B238DAAE40036CCF5 /* CitiesList.swift */; };
 		341B5E0E238DAB4C0036CCF5 /* CitiesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B5E0D238DAB4C0036CCF5 /* CitiesListViewModel.swift */; };
-		341B5E18238DC2A70036CCF5 /* WeatherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B5E17238DC2A70036CCF5 /* WeatherTest.swift */; };
+		341B5E20238DC3B70036CCF5 /* StorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B5E1F238DC3B70036CCF5 /* StorageTests.swift */; };
 		349098EC2383F29900DCF155 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349098EB2383F29900DCF155 /* AppDelegate.swift */; };
 		349098EE2383F29900DCF155 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349098ED2383F29900DCF155 /* SceneDelegate.swift */; };
 		349098F22383F29900DCF155 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 349098F12383F29900DCF155 /* Assets.xcassets */; };
@@ -47,8 +47,8 @@
 		341B5E0B238DAAE40036CCF5 /* CitiesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesList.swift; sourceTree = "<group>"; };
 		341B5E0D238DAB4C0036CCF5 /* CitiesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesListViewModel.swift; sourceTree = "<group>"; };
 		341B5E15238DC2A70036CCF5 /* WeatherTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		341B5E17238DC2A70036CCF5 /* WeatherTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTest.swift; sourceTree = "<group>"; };
 		341B5E19238DC2A70036CCF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		341B5E1F238DC3B70036CCF5 /* StorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTests.swift; sourceTree = "<group>"; };
 		349098E82383F29900DCF155 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		349098EB2383F29900DCF155 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		349098ED2383F29900DCF155 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,8 +107,8 @@
 		341B5E16238DC2A70036CCF5 /* WeatherTest */ = {
 			isa = PBXGroup;
 			children = (
-				341B5E17238DC2A70036CCF5 /* WeatherTest.swift */,
 				341B5E19238DC2A70036CCF5 /* Info.plist */,
+				341B5E1F238DC3B70036CCF5 /* StorageTests.swift */,
 			);
 			path = WeatherTest;
 			sourceTree = "<group>";
@@ -279,6 +279,7 @@
 				TargetAttributes = {
 					341B5E14238DC2A70036CCF5 = {
 						CreatedOnToolsVersion = 11.1;
+						LastSwiftMigration = 1110;
 						TestTargetID = 349098E72383F29900DCF155;
 					};
 					349098E72383F29900DCF155 = {
@@ -330,7 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				341B5E18238DC2A70036CCF5 /* WeatherTest.swift in Sources */,
+				341B5E20238DC3B70036CCF5 /* StorageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +385,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X24R65DM8E;
 				INFOPLIST_FILE = WeatherTest/Info.plist;
@@ -394,6 +396,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Impl.WeatherTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weather.app/Weather";
@@ -404,6 +407,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X24R65DM8E;
 				INFOPLIST_FILE = WeatherTest/Info.plist;
@@ -539,10 +543,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Calendar/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Weather/Preview Content\"";
 				DEVELOPMENT_TEAM = P8JA7643K4;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Calendar/Resources/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Weather/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -559,10 +563,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Calendar/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Weather/Preview Content\"";
 				DEVELOPMENT_TEAM = X24R65DM8E;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Calendar/Resources/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Weather/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
