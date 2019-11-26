@@ -9,7 +9,5 @@
 import Foundation
 
 protocol StorageProtocol {
-    func getCities() -> [String]
-    func storeCity(_ city: String)
-    func removeCity(_ city: String)
+    var cities: [String] { set get }
 }

@@ -25,6 +25,6 @@ struct DayWeatherView: View {
 
 struct DayWeatherView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherRootView()
+        WeatherRootView(city: "Berlin")
     }
 }

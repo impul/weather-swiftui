@@ -19,15 +19,12 @@ class UserDefaultsStorage: StorageProtocol {
         store = .standard
     }
     
-    func getCities() -> [String] {
-        return store.stringArray(forKey: Keys.cities) ?? []
-    }
-    
-    func storeCity(_ city: String) {
-        store.mutableArrayValue(forKey: Keys.cities).add(city)
-    }
-    
-    func removeCity(_ city: String) {
-        store.mutableArrayValue(forKey: Keys.cities).remove(city)
+    var cities: [String] {
+        set {
+            store.set(newValue, forKey: Keys.cities)
+        }
+        get {
+            store.stringArray(forKey: Keys.cities) ?? []
+        }
     }
 }

@@ -11,12 +11,12 @@ import SwiftUI
 struct WeatherRootView: View {
     @ObservedObject var viewModel = WeatherViewModel()
     
+    init(city: String) {
+        viewModel.loadCity(city)
+    }
+    
     var body: some View {
         VStack {
-            TextField("City name", text: $viewModel.searchCity)
-                .padding(.all)
-                .background(Color(.secondarySystemBackground))
-                .cornerRadius(5)
             List {
                 ForEach(viewModel.days) { dayDate in
                     VStack {
@@ -36,12 +36,13 @@ struct WeatherRootView: View {
                     }
                 }.frame(height: 130)
             }.onAppear { UITableView.appearance().separatorStyle = .none }
+             .onDisappear { UITableView.appearance().separatorStyle = .singleLine }
         }
     }
 }
 
 struct WeatherRootView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherRootView()
+        WeatherRootView(city: "Berlin")
     }
 }
