@@ -10,6 +10,7 @@ import Foundation
 
 struct Environment {
     var weather: WeatherSourceProtocol = OpenWeatherMapSource()
+    var storage: StorageProtocol = UserDefaultsStorage()
 }
 
 var Current = Environment()

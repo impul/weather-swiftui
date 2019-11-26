@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		341B5DDF238C872D0036CCF5 /* String+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B5DDE238C872D0036CCF5 /* String+Format.swift */; };
+		341B5E08238DA87B0036CCF5 /* StorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B5E07238DA87B0036CCF5 /* StorageProtocol.swift */; };
+		341B5E0A238DA92E0036CCF5 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B5E09238DA92E0036CCF5 /* UserDefaultsStorage.swift */; };
 		349098EC2383F29900DCF155 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349098EB2383F29900DCF155 /* AppDelegate.swift */; };
 		349098EE2383F29900DCF155 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349098ED2383F29900DCF155 /* SceneDelegate.swift */; };
 		349098F22383F29900DCF155 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 349098F12383F29900DCF155 /* Assets.xcassets */; };
@@ -27,6 +29,8 @@
 
 /* Begin PBXFileReference section */
 		341B5DDE238C872D0036CCF5 /* String+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Format.swift"; sourceTree = "<group>"; };
+		341B5E07238DA87B0036CCF5 /* StorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProtocol.swift; sourceTree = "<group>"; };
+		341B5E09238DA92E0036CCF5 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
 		349098E82383F29900DCF155 /* Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		349098EB2383F29900DCF155 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		349098ED2383F29900DCF155 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +61,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		341B5E05238DA8350036CCF5 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				341B5E07238DA87B0036CCF5 /* StorageProtocol.swift */,
+				341B5E09238DA92E0036CCF5 /* UserDefaultsStorage.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		341B5E06238DA8400036CCF5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				349099092384547500DCF155 /* Network */,
+				341B5E05238DA8350036CCF5 /* Store */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		349098DF2383F29900DCF155 = {
 			isa = PBXGroup;
 			children = (
@@ -76,8 +98,8 @@
 		349098EA2383F29900DCF155 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				341B5E06238DA8400036CCF5 /* Services */,
 				3490992523894D3600DCF155 /* Extension */,
-				349099092384547500DCF155 /* Network */,
 				349099062383F6FE00DCF155 /* Models */,
 				349099222387491F00DCF155 /* ViewModel */,
 				349099012383F3DE00DCF155 /* Views */,
@@ -240,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				341B5E08238DA87B0036CCF5 /* StorageProtocol.swift in Sources */,
 				349098EC2383F29900DCF155 /* AppDelegate.swift in Sources */,
 				341B5DDF238C872D0036CCF5 /* String+Format.swift in Sources */,
 				349099052383F6C900DCF155 /* DayWeatherView.swift in Sources */,
@@ -249,6 +272,7 @@
 				34909921238694B600DCF155 /* OpenWeatherResponceModel.swift in Sources */,
 				349099242387493B00DCF155 /* WeatherViewModel.swift in Sources */,
 				3490992723894DD500DCF155 /* Date+Formatted.swift in Sources */,
+				341B5E0A238DA92E0036CCF5 /* UserDefaultsStorage.swift in Sources */,
 				34909929238AA22000DCF155 /* CityModel.swift in Sources */,
 				3490990D2384732500DCF155 /* WeatherSourceProtocol.swift in Sources */,
 				349099032383F44B00DCF155 /* WeatherRootView.swift in Sources */,
