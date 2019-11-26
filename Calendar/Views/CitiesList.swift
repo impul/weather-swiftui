@@ -18,7 +18,9 @@ struct CitiesList: View {
                     TextField("Add city", text: $viewModel.enteredCity)
                     Button(action: {
                         self.viewModel.storeCity()
-                    }, label: { Text("Add") })
+                    }, label: {
+                        Text("Add")
+                    }).accentColor(.green)
                 }.padding(.all)
                     .background(Color(.secondarySystemBackground))
                     .cornerRadius(5)
